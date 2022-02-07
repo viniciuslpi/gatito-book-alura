@@ -1,0 +1,25 @@
+<h4 class="text-center">Registre-se e mostre seu pet ao mundo!</h4>
+<form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
+    <div class="form-group">
+        <input placeholder="Email" class="form-control" formControlName="email">
+        
+        <app-mensagem *ngIf="novoUsuarioForm.get('email')?.errors && novoUsuarioForm.get('email')?.touched" mensagem="Email obrigatório"></app-mensagem>
+
+        <app-mensagem mensagem="Email no formato incorreto" *ngIf="novoUsuarioForm.get('email')?.errors && novoUsuarioForm.get('email')?.touched"></app-mensagem>
+    </div>
+    <div class="form-group">
+        <input placeholder="Nome completo" class="form-control" formControlName="fullName">
+        <app-mensagem *ngIf="novoUsuarioForm.get('fullName')?.errors && novoUsuarioForm.get('fullName')?.touched" mensagem="Nome incorreto"></app-mensagem>
+    </div>
+    <div class="form-group">
+        <input placeholder="Usuário" class="form-control" formControlName="userName">
+        <app-mensagem *ngIf="novoUsuarioForm.get('userName')?.errors && novoUsuarioForm.get('userName')?.touched" mensagem="Usuário deve ser letra minúscula"></app-mensagem>
+    </div>
+    <div class="form-group">
+        <input placeholder="Senha" type="password" class="form-control" formControlName="password">
+    </div>
+    <button class="btn btn-primary btn-block" >Cadastro</button>
+</form>
+<p class="">Já é um usuário?
+    <a [routerLink]="['']">Entre agora!</a>
+</p>
