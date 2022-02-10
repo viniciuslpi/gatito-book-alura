@@ -13,9 +13,10 @@ export class AutenticacaoGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
+      
       if(!this.usuarioService.estaLogado()){
-        this.router.navigate(['']);
+        this.router.navigate(['home']);
+        console.log('teste')
         return false;
       }
       return true;
