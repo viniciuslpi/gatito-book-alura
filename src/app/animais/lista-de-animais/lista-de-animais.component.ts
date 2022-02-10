@@ -16,18 +16,15 @@ export class ListaDeAnimaisComponent implements OnInit {
   constructor(private usuarioService: UsuarioService, private animaisService: AnimaisService) { }
 
   ngOnInit(): void {
-    this.usuarioService.retornaUsuario().pipe(
+    this.animais$ = this.usuarioService.retornaUsuario().pipe(
       switchMap((usuario) => {
         const userName = usuario.name ?? '';
-        if(userName){
-          this.animais$ = this.animaisService.listaDoUsuario(userName);
-        }
-        return this.animais$;
+        return this.animaisService.listaDoUsuario(userName);
       })
     );
   }
 
 
-  
+
 
 }
