@@ -15,8 +15,8 @@ const routes: Routes = [
       },
       {
         path: 'novousuario',
-        component: NovoUsuarioComponent
-      }
+        component: NovoUsuarioComponent,
+      },
     ],
   },
 ];

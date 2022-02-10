@@ -10,20 +10,15 @@ import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    LoginComponent,
-    NovoUsuarioComponent
-  ],
+  declarations: [HomeComponent, LoginComponent, NovoUsuarioComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
     MensagemModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  exports: [
-    HomeComponent
-  ]
+  exports: [HomeComponent],
 })
-export class HomeModule { }
+export class HomeModule {}
+

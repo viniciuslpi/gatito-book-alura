@@ -6,19 +6,16 @@ import { Injectable } from '@angular/core';
 const API = environment.apiURL;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NovoUsuarioService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  cadastraNovoUsuario(novoUsuario: NovoUsuario): Observable<NovoUsuario>{
-    return this.http.post<NovoUsuario>(`${API}/user/signup`, novoUsuario);
+  cadastraNovoUsuario(novoUsuario: NovoUsuario) {
+    return this.http.post(`${API}/user/signup`, novoUsuario);
   }
 
-  verificaUsuarioExistente(nomeUsuario: string){
+  verificaUsuarioExistente(nomeUsuario: string) {
     return this.http.get(`${API}/user/exists/${nomeUsuario}`);
   }
-
-
 }

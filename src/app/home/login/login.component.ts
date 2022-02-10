@@ -8,24 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   usuario = '';
   senha = '';
 
-  constructor(private authService: AutenticacaoService, private router: Router) { }
+  constructor(
+    private authService: AutenticacaoService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  login(){
-    this.authService.autenticar(this.usuario, this.senha).subscribe(() => {
-      this.router.navigate(['animais']);
-    },
+  login() {
+    this.authService.autenticar(this.usuario, this.senha).subscribe(
+      () => {
+        this.router.navigate(['animais']);
+      },
       (error) => {
         alert('Usuário ou senha inválido');
-        console.error(error)
+        console.log(error);
       }
     );
   }
-
 }
+

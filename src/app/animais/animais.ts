@@ -7,6 +7,7 @@ export interface Animal {
     likes: number;
     comments: number;
     userId: number;
-}
-
-export type Animais = Array<Animal>;
+  }
+  
+  export type Animais = Array<Animal>;
+  

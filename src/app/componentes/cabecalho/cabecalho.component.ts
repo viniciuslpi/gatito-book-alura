@@ -8,14 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./cabecalho.component.css']
 })
 export class CabecalhoComponent {
+  user$ = this.usuarioService.retornaUsuario();
 
-  user$ = this.usuarioService.retornaUsuario(); 
+  constructor(private usuarioService: UsuarioService, private router: Router) {}
 
-  constructor(private usuarioService: UsuarioService, private router: Router) { }
-
-  logout(){
+  logout() {
     this.usuarioService.logout();
     this.router.navigate(['']);
   }
-
 }

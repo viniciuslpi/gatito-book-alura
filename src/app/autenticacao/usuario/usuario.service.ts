@@ -12,7 +12,9 @@ export class UsuarioService {
   private usuarioSubject = new BehaviorSubject<Usuario>({});
 
   constructor(private tokenService: TokenService) { 
-    if(this.tokenService.possuiToken()) this.decodificaJWT();
+    if(this.tokenService.possuiToken()) {
+      this.decodificaJWT();
+    }
   }
 
   private decodificaJWT(){
