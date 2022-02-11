@@ -1,3 +1,4 @@
+import { DetalheAnimalComponent } from './detalhe-animal/detalhe-animal.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AutenticacaoGuard } from '../autenticacao/autenticacao.guard';
@@ -7,8 +8,12 @@ const routes: Routes = [
   {
     path: '',
     component: ListaDeAnimaisComponent,
-
   },
+  {
+    path: ':animalId',
+    component: DetalheAnimalComponent
+  }
+
 ];
 
 @NgModule({
