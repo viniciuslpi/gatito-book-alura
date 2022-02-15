@@ -11,18 +11,17 @@ const routes: Routes = [
     path: '',
     component: ListaDeAnimaisComponent,
     resolve: {
-      animais: ListaAnimaisResolver
-    }
-  },
-  {
-    path: ':animalId',
-    component: DetalheAnimalComponent
+      animais: ListaAnimaisResolver,
+    },
   },
   {
     path: 'novo',
-    component: NovoAnimalComponent
-  }
-
+    component: NovoAnimalComponent,
+  },
+  {
+    path: ':animalId',
+    component: DetalheAnimalComponent,
+  },
 ];
 
 @NgModule({

@@ -12,14 +12,14 @@ const NOT_MODIFIED = '304'
   providedIn: 'root',
 })
 export class AnimaisService {
-  constructor(private http: HttpClient, private tokenService: TokenService) { }
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   listaDoUsuario(nomeDoUsuario: string): Observable<Animais> {
     return this.http.get<Animais>(`${API}/${nomeDoUsuario}/photos`);
   }
 
   buscaPorID(id: number): Observable<Animal> {
-    return this.http.get<Animal>(`${API}/photos/${id}`)
+    return this.http.get<Animal>(`${API}/photos/${id}`);
   }
 
   excluiAnimal(id: number): Observable<Animal> {
@@ -27,27 +27,25 @@ export class AnimaisService {
   }
 
   curtir(id: number): Observable<boolean> {
-    return this.http.post(`${API}/photos/${id}/like`,
-      {},
-      { observe: 'response' }
-    ).pipe(
-      mapTo(true),
-      catchError((error) => {
-        return error.status === NOT_MODIFIED ? of(false) : throwError(error);
-      })
-    );
+    return this.http
+      .post(`${API}/photos/${id}/like`, {}, { observe: 'response' })
+      .pipe(
+        mapTo(true),
+        catchError((error) => {
+          return error.status === NOT_MODIFIED ? of(false) : throwError(error);
+        })
+      );
   }
 
   upload(descricao: string, permiteComentario: boolean, arquivo: File) {
     const formData = new FormData();
     formData.append('description', descricao);
-    formData.append('allowComment', permiteComentario ? 'true' : 'false')
+    formData.append('allowComments', permiteComentario ? 'true' : 'false');
     formData.append('imageFile', arquivo);
 
     return this.http.post(`${API}/photos/upload`, formData, {
       observe: 'events',
-      reportProgress: true
-    })
+      reportProgress: true,
+    });
   }
-
 }
