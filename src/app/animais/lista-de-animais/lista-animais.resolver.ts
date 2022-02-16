@@ -2,7 +2,7 @@ import { UsuarioService } from 'src/app/autenticacao/usuario/usuario.service';
 import { AnimaisService } from './../animais.service';
 import { Injectable } from '@angular/core';
 import {
-  Router, Resolve,
+  Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
